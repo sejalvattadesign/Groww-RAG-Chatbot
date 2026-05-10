@@ -1,0 +1,22 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python
+.env
+__pycache__/
+*.pyc
+.DS_Store
+.next/
+node_modules/
+.ipynb_checkpoints/
+*.py[cod]
+*$py.class
+
+# Vector DB
+chroma_db/

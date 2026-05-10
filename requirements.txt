@@ -1,0 +1,12 @@
+langchain
+langchain-community
+beautifulsoup4
+requests
+playwright
+chromadb
+sentence-transformers
+langchain-groq
+python-dotenv
+fastapi
+uvicorn
+unstructured
