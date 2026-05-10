@@ -108,8 +108,9 @@ CONTEXT:
         
         # Step 4: Post-Processing (Phase 4.4)
         # Check if the LLM refused to answer due to missing context or is providing general info
-        refusal_phrases = ["do not have the information", "cannot answer", "does not contain", "is not mentioned", "i am a mutual fund faq assistant"]
+        refusal_phrases = ["do not have", "don't have", "cannot answer", "does not contain", "is not mentioned", "no information", "i am a mutual fund faq assistant"]
         is_general_or_unknown = any(phrase in llm_response.lower() for phrase in refusal_phrases)
+
         
         latest_date = retrieved_docs[0].metadata.get('last_updated_date', 'Unknown Date')
         primary_url = retrieved_docs[0].metadata.get('source_url', 'Unknown URL')

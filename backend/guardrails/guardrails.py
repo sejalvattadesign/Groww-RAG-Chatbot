@@ -52,7 +52,7 @@ class GuardrailSystem:
         # Here we simulate the logic with robust rule-based heuristics as a fast fallback.
         query_lower = query.lower()
         
-        advisory_keywords = ["should i", "is it good", "better", "recommend", "advice", "buy or sell", "invest in", "worth it"]
+        advisory_keywords = ["should i", "is it good", "better", "recommend", "advice", "buy or sell", "invest in", "worth it", "decide", "choose", "compare", "which one", "pick"]
         performance_keywords = ["returns", "cagr", "how much profit", "yield", "historical return", "performance of"]
         
         # 1. Check Advisory

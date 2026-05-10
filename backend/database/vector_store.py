@@ -32,13 +32,25 @@ class MutualFundVectorStore:
             persist_directory=CHROMA_DB_DIR
         )
 
-    def add_documents(self, chunks: List[Any]):
+    def add_documents(self, chunks: List[Any], clear_existing: bool = True):
         """
         Add document chunks to the Vector Store.
+        :param clear_existing: If True, clears the existing database before adding new data.
         """
+        if clear_existing:
+            print("Refreshing database: Clearing existing chunks...")
+            # We delete the collection and re-initialize it to ensure a clean state
+            self.vector_store.delete_collection()
+            self.vector_store = Chroma(
+                collection_name=self.collection_name,
+                embedding_function=self.embeddings,
+                persist_directory=CHROMA_DB_DIR
+            )
+            
         print(f"Adding {len(chunks)} chunks to ChromaDB...")
         self.vector_store.add_documents(documents=chunks)
         print("Successfully added chunks and persisted database.")
+
 
     def get_retriever(self, search_type: str = "mmr", k: int = 4, fetch_k: int = 15, metadata_filter: dict = None):
         """
